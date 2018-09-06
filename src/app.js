@@ -19,7 +19,7 @@ const userData=fs.readFileSync(
 );
 const users=JSON.parse(userData);
 
-app.get('/',(req,res)=>{res.render('index',{title:'Accounts Summary',accounts});
+app.get('/',(req,res)=>{res.render('index',{title:'Account Summary',accounts});
 });
 
 
@@ -36,7 +36,7 @@ app.get('/credit',(req,res)=>{
 });
 
 app.get('/profile',(req,res)=>{
-    res.render('profile',{user:user[0]});
+    res.render('profile',{user:users[0]});
 });
 
 app.listen(3001, () =>console.log('log on port 5000'));
