@@ -10,14 +10,14 @@ app.set('views engine','ejs');
 app.use(express.static(path.join(__dirname,'public')));
 
 const accountData=fs.readFileSync(
-  path.join(__dirname,'json','accounts'),'utf8'    
+  path.join(__dirname,'json','accounts.json'),'utf8'    
 );
-const accounts=json.parse('accountData');
+const accounts=JSON.parse(accountData);
 
 const userData=fs.readFileSync(
-    path.join(__dirname,'json','users'),'utf8'
+    path.join(__dirname,'json','users.json'),'utf8'
 );
-const users=json.parse('userData');
+const users=JSON.parse(userData);
 
 app.get('/',(req,res)=>{res.render('index',{title:'Accounts Summary',accounts});
 });
@@ -39,4 +39,4 @@ app.get('/profile',(req,res)=>{
     res.render('profile',{user:user[0]});
 });
 
-app.listen(9001, () =>console.log('log on port 5000'));
+app.listen(3001, () =>console.log('log on port 5000'));
